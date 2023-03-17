@@ -1,0 +1,36 @@
+usar o comando docker build . -t <nomedaimagem>
+
+editar o script firefox-docker na ultima linha para virar o nome da imagem informado no comando docker build
+
+ao rodar o script informar o nome do container e a porta para acesso
+
+acessar o container com o comando docker exec -it <nome informado ao utilizar o script> bash
+
+editar as linhas do arquivo /gclient/rdp.ejs
+
+remova a linha <div id="sideopen" onclick="$('#sidebar').toggle(100)"></div>
+
+saia do container com o comando exit
+
+utilize o comando docker ps -a
+
+verifique o id do container para utilizar o comando para comitar uma nova imagem
+
+docker commit <iddocontainer> <nomedanovaimagem>
+
+verifique que a nova imagem foi criada com o domando docker images
+
+altere a ultima linha do script firefox-docker para o novo nome da imagem 
+
+rode o script firefox-docker informando o nome do container e uma porta(o nome do container tambem e o nome do diretorio onde sera salvo os prints e os videos)
+
+para tirar print o script printfirefox realiza  ¶yesyeso print e salva com a data e o horario do print
+
+ainda não foi criado um script para iniciar a gravação, mas o passo a passo utilizado no momento é
+su - abc
+cd /config
+ffmpeg -framerate 25 -f x11grab -i :11.0 -f pulse -ac 2 -i 1 output.mkv
+
+somente o usuario abc pode realizar a gravação do display
+o diretorio e alterado para /config pois e o diretorio que tem o acesso por fora do container
+o comando ffmpeg e o que inicia a gravação ela e terminada com um ctrl+C no terminal.
