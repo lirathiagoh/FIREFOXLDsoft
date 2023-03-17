@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export DISPLAY=:10.0
+export DISPLAY=:11.0
 
 cd /config
 
